@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">MessageRoomApp</string>
+    <string name="base_token">Bearer %s</string>
+    <string name="username_invalid">Email/Số điện thoại không hợp lệ.</string>
+    <string name="password_invalid">Mật khẩu không hợp lệ.</string>
+    <string name="error_response">Đã xảy ra lỗi!</string>
+
+    <string name="male">Nam</string>
+    <string name="female">Nữ</string>
+    <string-array name="gender_list">
+        <item>@string/male</item>
+        <item>@string/female</item>
+    </string-array>
+</resources>
