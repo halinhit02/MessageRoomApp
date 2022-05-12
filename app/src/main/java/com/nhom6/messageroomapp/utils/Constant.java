@@ -1,7 +1,7 @@
 package com.nhom6.messageroomapp.utils;
 
 public class Constant {
-    public static final String BASE_URL = "http://messageroom.somee.com"; /*"http://10.0.2.2:5000";*/
+    public static final String BASE_URL = "http://messageroom.somee.com";
 
     public static final String BASE_GOOGLE_URL = "https://storage.googleapis.com/";
 
@@ -16,6 +16,9 @@ public class Constant {
     public static int WRITE_STORAGE_REQUEST_CODE = 123;
 
     public static final int MAX_INPUT_NAME_LENGTH = 64;
+
+    public static final String INTENT_EXTRA_CONVERSATION = "CurrentConversation";
+    public static final String INTENT_EXTRA_USER = "currentUser";
 
     public static final String OUTPUT_DATA_TAG = "OutputData";
 

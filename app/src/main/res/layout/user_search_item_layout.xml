@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.nhom6.messageroomapp.data.model.common.AppUser" />
+
+        <variable
+            name="listener"
+            type= "com.nhom6.messageroomapp.ui.base.BaseViewAdapter.Presenter"/>
+    </data>
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/iv_Avatar"
+            android:layout_width="54dp"
+            android:layout_height="54dp"
+            android:src="@color/blue_dark"
+            app:setImageGlide="@{viewModel.avatar}" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/iv_Avatar"
+            android:layout_alignBottom="@id/iv_Avatar"
+            android:layout_marginHorizontal="10dp"
+            android:layout_toStartOf="@id/btn_add"
+            android:layout_toEndOf="@id/iv_Avatar"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxLength="12"
+                android:text="@{viewModel.name}"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:maxLength="12"
+                android:text="@{viewModel.gender}"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/btn_add"
+            android:layout_width="24dp"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/iv_Avatar"
+            android:layout_alignBottom="@id/iv_Avatar"
+            android:layout_alignParentEnd="true"
+            android:onClick="@{(v) -> listener.onItemClick(v, viewModel)}"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_add_round"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </RelativeLayout>
+</layout>

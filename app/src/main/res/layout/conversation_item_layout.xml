@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <import type="com.nhom6.messageroomapp.utils.Constant"/>
+        <import type="com.nhom6.messageroomapp.utils.DateTimeUtils"/>
+        <variable
+            name="viewModel"
+            type="com.nhom6.messageroomapp.data.model.conversation.Conversation" />
+
+        <variable
+            name="listener"
+            type= "com.nhom6.messageroomapp.ui.base.BaseViewAdapter.Presenter"/>
+    </data>
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@drawable/view_clicked_background"
+        android:onClick="@{(v) -> listener.onItemClick(v, viewModel)}"
+        android:padding="10dp">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/img_avatar"
+            android:layout_width="54dp"
+            android:layout_height="54dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:src="@color/blue_dark"
+            app:setImageGlide="@{viewModel.avatar}" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/img_avatar"
+            android:layout_alignParentTop="true"
+            android:layout_gravity="center"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="10dp"
+            android:layout_toStartOf="@id/tv_time"
+            android:layout_toEndOf="@id/img_avatar"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:setTextOverFlow="@{viewModel.title}"
+                app:setMaxLength="@{25}"
+                android:maxLines="1"
+                android:lines="1"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:maxLines="1"
+                android:lines="1"
+                app:setTextOverFlow="@{viewModel.latestMessage.content}"
+                app:setMaxLength="@{31}"
+                android:textColor="@color/dark_grey"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/dark_grey"
+            android:textStyle="bold"
+            android:text="@{DateTimeUtils.convertDateTime(viewModel.updatedAt, Constant.ServerPattern, Constant.DateTimePattern)}"
+            android:textSize="14sp" />
+    </RelativeLayout>
+</layout>

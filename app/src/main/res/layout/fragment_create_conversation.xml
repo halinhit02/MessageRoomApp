@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="viewModel"
+            type="com.nhom6.messageroomapp.ui.main.viewmodel.ConversationCreateViewModel" />
+        <variable
+            name="onClick"
+            type="android.view.View.OnClickListener" />
+        <variable
+            name="adapter"
+            type="androidx.recyclerview.widget.RecyclerView.Adapter" />
+        <variable
+            name="addedAdapter"
+            type="androidx.recyclerview.widget.RecyclerView.Adapter" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:layout_marginHorizontal="15dp"
+        android:orientation="vertical">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingVertical="10dp">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_cancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Hủy"
+                android:textColor="@color/blue_light"
+                android:textSize="@dimen/txt_size_title"
+                android:onClick="@{onClick}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tạo cuộc trò chuyện"
+                android:textColor="@color/blue_dark"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_create"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:text="Tạo"
+                android:onClick="@{onClick}"
+                android:textAllCaps="false"
+                android:textColor="@color/blue_light"
+                android:textSize="@dimen/txt_size_title"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="58dp"
+            android:layout_height="58dp"
+            android:layout_marginTop="5dp"
+            android:src="@color/blue_dark"
+            android:visibility="gone"
+            app:setImageGlide="@{viewModel.avatarField}" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/edt_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@={viewModel.createRequestField.title}"
+            android:layout_marginTop="5dp"
+            android:backgroundTint="@color/white"
+            android:hint="Tên nhóm (Không bắt buộc)"
+            android:lines="1"
+            android:maxLines="1"
+            android:paddingHorizontal="15dp"
+            android:textColor="@color/black"
+            android:textSize="@dimen/txt_size_title" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/edt_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@={viewModel.createRequestField.description}"
+            android:layout_marginTop="5dp"
+            android:backgroundTint="@color/white"
+            android:hint="Mô tả nhóm (Không bắt buộc)"
+            android:maxLines="4"
+            android:paddingHorizontal="15dp"
+            android:textColor="@color/black"
+            android:textSize="@dimen/txt_size_title" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_selected_user"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="5dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:adapter="@{addedAdapter}"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/edt_search"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_toStartOf="@id/btn_search"
+                android:background="@drawable/radius_background"
+                android:backgroundTint="#EFEFEF"
+                android:drawableTint="@color/blue_light"
+                android:hint="Tên người dùng, email/số điện thoại"
+                android:inputType="text"
+                android:lines="1"
+                android:maxLines="1"
+                android:paddingHorizontal="10dp"
+                android:paddingVertical="10dp"
+                android:text="@={viewModel.keywordField}"
+                android:textSize="@dimen/txt_size_subtitle" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_search"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@id/edt_search"
+                android:layout_alignBottom="@id/edt_search"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="10dp"
+                android:background="@drawable/radius_background"
+                android:backgroundTint="@color/blue_light"
+                android:onClick="@{onClick}"
+                android:text="Tìm Kiếm"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="@dimen/txt_size_subtitle" />
+        </RelativeLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_user"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:adapter="@{adapter}"/>
+    </LinearLayout>
+</layout>

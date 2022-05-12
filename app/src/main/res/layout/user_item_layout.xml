@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.nhom6.messageroomapp.data.model.common.AppUser" />
+
+        <variable
+            name="listener"
+            type= "com.nhom6.messageroomapp.ui.base.BaseViewAdapter.Presenter"/>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/iv_Avatar"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginVertical="10dp"
+            android:layout_marginHorizontal="15dp"
+            android:src="@color/blue_dark"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:setImageGlide="@{viewModel.avatar}" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="5dp"
+            android:maxLength="12"
+            android:text="@{viewModel.name}"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="@id/iv_Avatar"
+            app:layout_constraintStart_toStartOf="@id/iv_Avatar"
+            app:layout_constraintTop_toBottomOf="@id/iv_Avatar" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/btn_remove"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_remove"
+            android:onClick="@{(v) -> listener.onItemClick(v, viewModel)}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.nhom6.messageroomapp.R" />
+
+        <variable
+            name="profileVM"
+            type="com.nhom6.messageroomapp.ui.main.viewmodel.ProfileViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:elevation="1dp"
+            android:src="@color/white" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:elevation="5dp"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/tool_bar_Layout"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@color/blue_dark"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingStart="10dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="10dp"
+                tools:ignore="RtlSymmetry">
+
+                <ImageView
+                    android:id="@+id/btn_back"
+                    android:layout_width="28dp"
+                    android:layout_height="24dp"
+                    android:onClick="@{profileVM.onClick}"
+                    android:src="@drawable/ic_back"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="ContentDescription" />
+
+
+                <TextView
+                    android:id="@+id/tv_receiver"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="10dp"
+                    android:text="Hồ sơ cá nhân"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.core.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical"
+                    android:paddingHorizontal="30dp"
+                    android:paddingTop="20dp"
+                    android:paddingBottom="20dp">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/iv_Avatar"
+                        android:layout_width="84dp"
+                        android:layout_height="84dp"
+                        android:onClick="@{profileVM.onClick}"
+                        android:src="@drawable/no_photo"
+                        app:setImageGlide="@{profileVM.avatarUrlField}" />
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/nameEdt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:background="@drawable/border_radius_background"
+                        android:hint="Tên hiển thị"
+                        android:inputType="text"
+                        android:lines="1"
+                        android:maxLines="1"
+                        android:paddingVertical="@dimen/padding_vertical"
+                        android:paddingStart="15dp"
+                        android:paddingEnd="10dp"
+                        android:text="@={profileVM.appUserField.name}"
+                        android:textSize="@dimen/txt_size_title" />
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/aboutMeEdt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:background="@drawable/border_radius_background"
+                        android:hint="Giới thiệu (Không bắt buộc)"
+                        android:inputType="text"
+                        android:lines="1"
+                        android:maxLines="1"
+                        android:paddingVertical="@dimen/padding_vertical"
+                        android:paddingStart="15dp"
+                        android:paddingEnd="10dp"
+                        android:text="@={profileVM.appUserField.aboutMe}"
+                        android:textSize="@dimen/txt_size_title" />
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/phoneEdt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:background="@drawable/border_radius_background"
+                        android:hint="Số điện thoại"
+                        android:inputType="phone"
+                        android:lines="1"
+                        android:maxLines="1"
+                        android:paddingVertical="@dimen/padding_vertical"
+                        android:paddingStart="15dp"
+                        android:paddingEnd="10dp"
+                        android:text="@={profileVM.appUserField.phone}"
+                        android:textSize="@dimen/txt_size_title" />
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/emailEdt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:background="@drawable/border_radius_background"
+                        android:hint="Email"
+                        android:inputType="textEmailAddress"
+                        android:lines="1"
+                        android:maxLines="1"
+                        android:paddingVertical="@dimen/padding_vertical"
+                        android:paddingStart="15dp"
+                        android:paddingEnd="10dp"
+                        android:text="@={profileVM.appUserField.email}"
+                        android:textSize="@dimen/txt_size_title" />
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/dobEdt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:background="@drawable/border_radius_background"
+                        android:hint="Ngày sinh"
+                        android:inputType="date"
+                        android:lines="1"
+                        android:maxLines="1"
+                        android:paddingVertical="@dimen/padding_vertical"
+                        android:paddingStart="15dp"
+                        android:paddingEnd="10dp"
+                        android:text="@={profileVM.appUserField.dob}"
+                        android:textSize="@dimen/txt_size_title" />
+
+                    <androidx.appcompat.widget.AppCompatSpinner
+                        android:id="@+id/genderSpinner"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:background="@drawable/border_radius_background"
+                        android:entries="@array/gender_list"
+                        android:paddingVertical="@dimen/padding_vertical"
+                        android:paddingStart="10dp"
+                        android:paddingEnd="10dp"
+                        app:selectedValue="@={profileVM.appUserField.gender}" />
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/passwordEdt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:background="@drawable/border_radius_background"
+                        android:hint="Nhập mật khẩu..."
+                        android:inputType="textPassword"
+                        android:lines="1"
+                        android:maxLines="1"
+                        android:paddingVertical="@dimen/padding_vertical"
+                        android:paddingStart="15dp"
+                        android:paddingEnd="10dp"
+                        android:text="@={profileVM.passwordField}"
+                        android:textSize="@dimen/txt_size_title" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btn_update"
+                        android:layout_width="@dimen/width_button"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:backgroundTint="@color/blue_light"
+                        android:onClick="@{profileVM.onClick}"
+                        android:paddingHorizontal="25dp"
+                        android:paddingVertical="@dimen/padding_vertical"
+                        android:text="Lưu thông tin"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/txt_size_title"
+                        app:cornerRadius="@dimen/corner_radius" />
+
+                </LinearLayout>
+            </androidx.core.widget.NestedScrollView>
+
+        </LinearLayout>
+    </RelativeLayout>
+
+</layout>

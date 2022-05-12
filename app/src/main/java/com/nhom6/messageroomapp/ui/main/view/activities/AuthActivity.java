@@ -13,7 +13,6 @@ public class AuthActivity extends BaseActivity<ActivityAuthBinding> {
 
     @Override
     public void initData() {
-        AppUtils.clearSharedPref();
     }
 
     @Override
