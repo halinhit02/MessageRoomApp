@@ -97,5 +97,6 @@ public class ConversationFragment extends BaseMainFragment<FragmentConversationB
         appViewModel.setGlobalConversation(conversation);
         Bundle bundle = new Bundle();
         bundle.putParcelable(Constant.INTENT_EXTRA_CONVERSATION, conversation);
+        Navigation.findNavController(v).navigate(R.id.action_conversationFragment_to_messageFragment, bundle);
     }
 }

@@ -128,7 +128,7 @@ public class ConversationCreateFragment extends BaseFragment<FragmentCreateConve
             appViewModel.setGlobalConversation(newConversation);
             Bundle bundle = new Bundle();
             bundle.putParcelable(Constant.INTENT_EXTRA_CONVERSATION, newConversation);
-
+            navController.navigate(R.id.action_conversationCreateFragment_to_messageFragment, bundle);
         });
     }
 

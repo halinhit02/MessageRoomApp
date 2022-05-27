@@ -10,6 +10,17 @@
     <string name="notification_title">Thông báo</string>
     <string name="setting_title">Setting</string>
 
+    <string name="join_failed">"Join channel failed"</string>
+    <string name="login_failed">Không thể kết nối!</string>
+    <string name="single_input">Nhập tin nhắn...</string>\
+    <string name="str_send">Send</string>
+    <string name="send_msg_failed">Không thể gửi tin nhắn</string>
+    <string name="peer_offline">Peer is offline</string>
+    <string name="message_cached">Message cached by server</string>
+    <string name="reconnecting">Đang kết nối lại...</string>
+    <string name="account_offline">Connection lost</string>
+
+
     <string name="male">Nam</string>
     <string name="female">Nữ</string>
     <string-array name="gender_list">

@@ -1,0 +1,76 @@
+{
+  "project_info": {
+    "project_number": "659990130815",
+    "project_id": "messageroom-halinhit",
+    "storage_bucket": "messageroom-halinhit.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:659990130815:android:e44354eb6d2216e4cd4f4a",
+        "android_client_info": {
+          "package_name": "com.halinhit.messageroom"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "659990130815-nptm0di4lhjmkm0fhiiuoif3tkpv796r.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.halinhit.messageroom",
+            "certificate_hash": "82eada839ce6370261500288f2af8f4f57d3af83"
+          }
+        },
+        {
+          "client_id": "659990130815-7u3i7euai1keuidp3b791tk8tedvrao6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCjFXlT6O-w2Y35aJ5lNhoC1-TCiWE-bgY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "659990130815-7u3i7euai1keuidp3b791tk8tedvrao6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:659990130815:android:626401e519d319f8cd4f4a",
+        "android_client_info": {
+          "package_name": "com.nhom6.messageroomapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "659990130815-7u3i7euai1keuidp3b791tk8tedvrao6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCjFXlT6O-w2Y35aJ5lNhoC1-TCiWE-bgY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "659990130815-7u3i7euai1keuidp3b791tk8tedvrao6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

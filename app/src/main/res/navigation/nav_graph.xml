@@ -38,7 +38,10 @@
         android:id="@+id/conversationCreateFragment"
         android:name="com.nhom6.messageroomapp.ui.main.view.fragments.ConversationCreateFragment"
         android:label="ConversationCreateFragment"
-        tools:layout="@layout/fragment_create_conversation" >
+        tools:layout="@layout/fragment_create_conversation">
+        <action
+            android:id="@+id/action_conversationCreateFragment_to_messageFragment"
+            app:destination="@id/messageFragment" />
     </fragment>
     <fragment
         android:id="@+id/navigation_conversation"
@@ -46,11 +49,52 @@
         android:label="@string/conversation_title"
         tools:layout="@layout/fragment_conversation">
         <action
+            android:id="@+id/action_conversationFragment_to_messageFragment"
+            app:destination="@id/messageFragment" />
+        <action
             android:id="@+id/action_navigation_conversation_to_conversationCreateFragment"
             app:destination="@id/conversationCreateFragment" />
     </fragment>
-
+    <fragment
+        android:id="@+id/messageFragment"
+        android:name="com.nhom6.messageroomapp.ui.main.view.fragments.MessageFragment"
+        android:label="MessageFragment"
+        tools:layout="@layout/fragment_message">
+        <action
+            android:id="@+id/action_messageFragment_to_navigation_conversation"
+            app:destination="@id/navigation_conversation"
+            app:popUpTo="@id/navigation_conversation"
+            app:popUpToInclusive="true"/>
+        <action
+            android:id="@+id/action_messageFragment_to_conversationInformationFragment"
+            app:destination="@id/conversationInformationFragment" />
+        <action
+            android:id="@+id/action_messageFragment_to_photoViewerFragment"
+            app:destination="@id/photoViewerFragment" />
+    </fragment>
     <action
         android:id="@+id/action_global_homeFragment"
         app:destination="@id/navigation_home" />
+    <fragment
+        android:id="@+id/conversationInformationFragment"
+        android:name="com.nhom6.messageroomapp.ui.main.view.fragments.ConversationInformationFragment"
+        android:label="ConversationInformationFragment"
+        tools:layout="@layout/fragment_conversation_information">
+        <action
+            android:id="@+id/action_conversationInformationFragment_to_conversationEditFragment"
+            app:destination="@id/conversationEditFragment" />
+        <action
+            android:id="@+id/action_conversationInformationFragment_to_navigation_conversation"
+            app:destination="@id/navigation_conversation"/>
+    </fragment>
+    <fragment
+        android:id="@+id/conversationEditFragment"
+        android:name="com.nhom6.messageroomapp.ui.main.view.fragments.ConversationEditFragment"
+        android:label="ConversationEditFragment"
+        tools:layout="@layout/fragment_edit_conversation"/>
+    <fragment
+        android:id="@+id/photoViewerFragment"
+        android:name="com.nhom6.messageroomapp.ui.main.view.fragments.PhotoViewerFragment"
+        android:label="PhotoViewerFragment"
+        tools:layout="@layout/fragment_photo_viewer"/>
 </navigation>

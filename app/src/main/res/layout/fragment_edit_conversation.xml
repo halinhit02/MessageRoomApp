@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.nhom6.messageroomapp.ui.main.viewmodel.ConversationEditViewModel" />
+
+        <variable
+            name="onClicked"
+            type="android.view.View.OnClickListener" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#F1F1F1"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="10dp">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/btn_back"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_alignParentStart="true"
+                android:layout_gravity="start"
+                android:onClick="@{onClicked}"
+                android:src="@drawable/ic_back"
+                android:tint="@color/blue_dark" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@id/btn_back"
+                android:layout_alignParentTop="true"
+                android:layout_toStartOf="@id/btn_done"
+                android:layout_toEndOf="@id/btn_back"
+                android:gravity="center"
+                android:text="Chỉnh sửa"
+                android:textColor="@color/blue_dark"
+                android:textSize="@dimen/txt_size_title"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/btn_done"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="5dp"
+                android:gravity="end"
+                android:onClick="@{onClicked}"
+                android:text="Xong"
+                android:textColor="@color/blue_light"
+                android:textSize="@dimen/txt_size_title" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/iv_avatar"
+                android:layout_width="84dp"
+                android:layout_height="84dp"
+                android:layout_marginTop="10dp"
+                app:setImageGlide="@{viewModel.avatarUrlField}" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/edt_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/radius_background"
+                android:backgroundTint="@color/white"
+                android:paddingVertical="10dp"
+                android:hint="Đặt tên nhóm (Không bắt buộc)"
+                android:lines="1"
+                android:maxLines="1"
+                android:paddingHorizontal="15dp"
+                android:text="@={viewModel.conversationEditField.title}"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="@dimen/txt_size_title" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/edt_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/radius_background"
+                android:backgroundTint="@color/white"
+                android:paddingVertical="10dp"
+                android:layout_marginTop="5dp"
+                android:hint="Mô tả nhóm (Không bắt buộc)"
+                android:maxLines="4"
+                android:paddingHorizontal="15dp"
+                android:text="@={viewModel.conversationEditField.description}"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="@dimen/txt_size_title" />
+
+            <LinearLayout
+                android:id="@+id/ly_upload"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                android:onClick="@{onClicked}"
+                android:orientation="vertical">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="52dp"
+                    android:layout_height="52dp"
+                    app:cardBackgroundColor="#FFFFFF"
+                    app:cardCornerRadius="30dp"
+                    app:cardElevation="0dp">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="11dp"
+                        android:layout_gravity="center"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/ic_image"
+                        tools:ignore="ContentDescription" />
+                </androidx.cardview.widget.CardView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="Tải lên"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/txt_size_subtitle" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</layout>

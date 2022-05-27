@@ -23,6 +23,15 @@ import com.nhom6.messageroomapp.data.model.base.BasePagingResponse;
 import com.nhom6.messageroomapp.data.model.common.AppUser;
 import com.nhom6.messageroomapp.data.model.conversation.Conversation;
 import com.nhom6.messageroomapp.data.model.conversation.ConversationCreateRequest;
+import com.nhom6.messageroomapp.data.model.conversation.ConversationEditRequest;
+import com.nhom6.messageroomapp.data.model.conversation.ConversationGetRequest;
+import com.nhom6.messageroomapp.data.model.message.MessageCreateRequest;
+import com.nhom6.messageroomapp.data.model.message.MessageGetRequest;
+import com.nhom6.messageroomapp.data.model.message.MessagePagingRequest;
+import com.nhom6.messageroomapp.data.model.message.MessageResponse;
+import com.nhom6.messageroomapp.data.model.participant.Participant;
+import com.nhom6.messageroomapp.data.model.participant.ParticipantDeleteRequest;
+import com.nhom6.messageroomapp.data.model.participant.ParticipantPagingRequest;
 import com.nhom6.messageroomapp.data.model.storage.FileUploadRequest;
 import com.nhom6.messageroomapp.data.model.storage.SignedUrl;
 import com.nhom6.messageroomapp.data.model.storage.SignedUrlGetRequest;
@@ -82,9 +91,46 @@ public class APINetwork {
                 .enqueue(new ApiResponseCallback<>(conversationCallback));
     }
 
+    public static void GetConversation(ConversationGetRequest request, MutableLiveData<BaseAPIResponse<Conversation>> conversationLiveData) {
+        getDataAPIService().getConversation(request.getId(), request.getUserId())
+                .enqueue(new LiveDataResponseCallback<>(conversationLiveData));
+    }
+
     public static void CreateConversation(ConversationCreateRequest request, MutableLiveData<BaseAPIResponse<Conversation>> conversationCallback) {
         getDataAPIService().createConversation(request)
                 .enqueue(new LiveDataResponseCallback<>(conversationCallback));
+    }
+
+    public static void EditConversation(ConversationEditRequest request, ObjectCallback<BaseAPIResponse<Boolean>> conversationCallback) {
+        getDataAPIService().editConversation(request)
+                .enqueue(new ApiResponseCallback<>(conversationCallback));
+    }
+
+    //message
+    public static void GetAllMessage(MessagePagingRequest request, MutableLiveData<BaseAPIResponse<BasePagingResponse<MessageResponse>>> messageAllCallback) {
+        getDataAPIService().getMessagePaging(request.pageIndex, request.pageSize, request.conversationId, request.userId)
+                .enqueue(new LiveDataResponseCallback<>(messageAllCallback));
+    }
+
+    public static void CreateMessage(MessageCreateRequest request, ObjectCallback<BaseAPIResponse<MessageResponse>> messageCallback) {
+        getDataAPIService().createMessage(request)
+                .enqueue(new ApiResponseCallback<>(messageCallback));
+    }
+
+    public static void GetMessage(MessageGetRequest request, ObjectCallback<BaseAPIResponse<MessageResponse>> messageResponseCallback) {
+        getDataAPIService().getMessage(request.getId(), request.getConversationId(), request.getUserId())
+                .enqueue(new ApiResponseCallback<>(messageResponseCallback));
+    }
+
+    //participant
+    public static void GetAllParticipant(ParticipantPagingRequest request, ObjectCallback<BaseAPIResponse<BasePagingResponse<Participant>>> participantCallback) {
+        getDataAPIService().getParticipantPaging(request.pageIndex, request.pageSize, request.conversationId, request.userId)
+                .enqueue(new ApiResponseCallback<>(participantCallback));
+    }
+
+    public static void DeleteParticipant(ParticipantDeleteRequest request, ObjectCallback<BaseAPIResponse<Boolean>> participantRemoveCallback) {
+        getDataAPIService().deleteParticipant(request.getConversationId(), request.getUserId(), request.getLeaverId())
+                .enqueue(new ApiResponseCallback<>(participantRemoveCallback));
     }
 
     //user

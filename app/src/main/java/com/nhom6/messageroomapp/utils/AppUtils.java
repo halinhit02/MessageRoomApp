@@ -5,6 +5,7 @@ import static android.content.pm.PackageManager.PERMISSION_GRANTED;
 
 import android.Manifest;
 import android.content.SharedPreferences;
+import android.util.Log;
 
 import androidx.fragment.app.FragmentActivity;
 
@@ -12,10 +13,22 @@ import com.google.gson.Gson;
 import com.nhom6.messageroomapp.MRApplication;
 import com.nhom6.messageroomapp.R;
 import com.nhom6.messageroomapp.data.model.common.AppUser;
+import com.nhom6.messageroomapp.data.model.media.RtmTokenBuilder;
 
 public class AppUtils {
 
     private static final String nameSharePref = MRApplication.the().getString(R.string.app_name);
+
+    public static String buildToken(String userId) {
+        RtmTokenBuilder tokenBuilder = new RtmTokenBuilder();
+        try {
+            return tokenBuilder.buildToken(Constant.APP_ID, Constant.App_Certificate
+                    , userId, RtmTokenBuilder.Role.Rtm_User, RtmTokenBuilder.privilegeTs_default);
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException("Can't create tokenn\n" + Log.getStackTraceString(e));
+        }
+    }
 
     public static boolean checkPermission(FragmentActivity context) {
         if (context.checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE) != PERMISSION_GRANTED) {
