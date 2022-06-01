@@ -8,14 +8,18 @@
         <entry key="..\:/Users/HALINHIT/AndroidStudioProjects/MessageRoomApp/app/src/main/res/drawable/message_left_background.xml" value="0.1" />
         <entry key="..\:/Users/HALINHIT/AndroidStudioProjects/MessageRoomApp/app/src/main/res/layout/activity_auth.xml" value="0.21822916666666667" />
         <entry key="..\:/Users/HALINHIT/AndroidStudioProjects/MessageRoomApp/app/src/main/res/layout/activity_main.xml" value="0.21822916666666667" />
+        <entry key="..\:/Users/HALINHIT/AndroidStudioProjects/MessageRoomApp/app/src/main/res/layout/bottom_sheet_menu_participant.xml" value="0.1" />
         <entry key="..\:/Users/HALINHIT/AndroidStudioProjects/MessageRoomApp/app/src/main/res/layout/conversation_item_layout.xml" value="0.1" />
+        <entry key="..\:/Users/HALINHIT/AndroidStudioProjects/MessageRoomApp/app/src/main/res/layout/fragment_add_participant.xml" value="0.1" />
         <entry key="..\:/Users/HALINHIT/AndroidStudioProjects/MessageRoomApp/app/src/main/res/layout/fragment_authenticate.xml" value="0.21822916666666667" />
         <entry key="..\:/Users/HALINHIT/AndroidStudioProjects/MessageRoomApp/app/src/main/res/layout/fragment_conversation.xml" value="0.1" />
         <entry key="..\:/Users/HALINHIT/AndroidStudioProjects/MessageRoomApp/app/src/main/res/layout/fragment_conversation_information.xml" value="0.1" />
         <entry key="..\:/Users/HALINHIT/AndroidStudioProjects/MessageRoomApp/app/src/main/res/layout/fragment_create_conversation.xml" value="0.1" />
+        <entry key="..\:/Users/HALINHIT/AndroidStudioProjects/MessageRoomApp/app/src/main/res/layout/fragment_dialog_input.xml" value="0.1" />
         <entry key="..\:/Users/HALINHIT/AndroidStudioProjects/MessageRoomApp/app/src/main/res/layout/fragment_edit_conversation.xml" value="0.1" />
         <entry key="..\:/Users/HALINHIT/AndroidStudioProjects/MessageRoomApp/app/src/main/res/layout/fragment_home.xml" value="0.1" />
         <entry key="..\:/Users/HALINHIT/AndroidStudioProjects/MessageRoomApp/app/src/main/res/layout/fragment_message.xml" value="0.1" />
+        <entry key="..\:/Users/HALINHIT/AndroidStudioProjects/MessageRoomApp/app/src/main/res/layout/fragment_participant.xml" value="0.1" />
         <entry key="..\:/Users/HALINHIT/AndroidStudioProjects/MessageRoomApp/app/src/main/res/layout/fragment_photo.xml" value="0.1" />
         <entry key="..\:/Users/HALINHIT/AndroidStudioProjects/MessageRoomApp/app/src/main/res/layout/fragment_photo_view.xml" value="0.1" />
         <entry key="..\:/Users/HALINHIT/AndroidStudioProjects/MessageRoomApp/app/src/main/res/layout/fragment_profile.xml" value="0.1" />
@@ -27,6 +31,7 @@
         <entry key="..\:/Users/HALINHIT/AndroidStudioProjects/MessageRoomApp/app/src/main/res/layout/message_left_item_layout.xml" value="0.1" />
         <entry key="..\:/Users/HALINHIT/AndroidStudioProjects/MessageRoomApp/app/src/main/res/layout/message_right_item.xml" value="0.1" />
         <entry key="..\:/Users/HALINHIT/AndroidStudioProjects/MessageRoomApp/app/src/main/res/layout/message_right_item_layout.xml" value="0.1" />
+        <entry key="..\:/Users/HALINHIT/AndroidStudioProjects/MessageRoomApp/app/src/main/res/layout/participant_item_layout.xml" value="0.1" />
         <entry key="..\:/Users/HALINHIT/AndroidStudioProjects/MessageRoomApp/app/src/main/res/layout/user_item_layout.xml" value="0.1" />
         <entry key="..\:/Users/HALINHIT/AndroidStudioProjects/MessageRoomApp/app/src/main/res/layout/user_search_item_layout.xml" value="0.1" />
         <entry key="..\:/Users/HALINHIT/AndroidStudioProjects/MessageRoomApp/app/src/main/res/menu/navigation.xml" value="0.21822916666666667" />

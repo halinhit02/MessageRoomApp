@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <import type="androidx.databinding.ObservableField" />
+
+        <variable
+            name="viewModel"
+            type="com.nhom6.messageroomapp.ui.main.viewmodel.MenuParticipantViewModel" />
+
+        <variable
+            name="onClicked"
+            type="android.view.View.OnClickListener" />
+    </data>
+
+    <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="@dimen/corner_radius"
+        app:cardElevation="5dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="15dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Đổi biệt danh"
+                android:textAlignment="center"
+                android:textColor="@color/blue_light"
+                android:textSize="@dimen/txt_size_head"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingVertical="2dp"
+                android:text="Mọi người trong cuộc trò chuyện sẽ thấy biệt danh này."
+                android:textAlignment="center"
+                android:textColor="@color/blue_dark"
+                android:textSize="@dimen/txt_size_subtitle" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/edt_nickName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/border_radius_background"
+                android:hint="@{viewModel.participantField.nickName == null ? viewModel.participantField.user.name : viewModel.participantField.nickName}"
+                android:inputType="text"
+                android:lines="1"
+                android:maxLines="1"
+                android:paddingVertical="@dimen/padding_vertical"
+                android:text="@={viewModel.newNickNameField}"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="@dimen/txt_size_title" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_update"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:backgroundTint="@color/blue_light"
+                android:onClick="@{onClicked}"
+                android:paddingVertical="@dimen/padding_vertical"
+                android:text="Lưu thông tin"
+                android:textColor="@color/white"
+                android:textSize="@dimen/txt_size_subtitle"
+                app:cornerRadius="@dimen/corner_radius" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

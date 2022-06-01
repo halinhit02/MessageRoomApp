@@ -9,6 +9,8 @@ import com.nhom6.messageroomapp.data.model.conversation.ConversationEditRequest;
 import com.nhom6.messageroomapp.data.model.message.MessageCreateRequest;
 import com.nhom6.messageroomapp.data.model.message.MessageResponse;
 import com.nhom6.messageroomapp.data.model.participant.Participant;
+import com.nhom6.messageroomapp.data.model.participant.ParticipantAddRequest;
+import com.nhom6.messageroomapp.data.model.participant.ParticipantUpdateRequest;
 import com.nhom6.messageroomapp.data.model.storage.SignedUrl;
 import com.nhom6.messageroomapp.data.model.user.UserSearchPagingResponse;
 import com.nhom6.messageroomapp.data.model.user.UserUpdateRequest;
@@ -45,17 +47,22 @@ public interface DataAPIService {
                                                                                 @Query("conversationId") Integer conversationId,
                                                                                 @Query("userId") Integer userId);
 
+    @POST("api/conversations/participants")
+    Call<BaseAPIResponse<Participant>> addParticipant(@Body ParticipantAddRequest request);
+
+    @PUT("api/conversations/participants")
+    Call<BaseAPIResponse<Boolean>> updateParticipant(@Body ParticipantUpdateRequest request);
+
+    @DELETE("api/conversations/participants")
+    Call<BaseAPIResponse<Boolean>> deleteParticipant(@Query("conversationId") Integer conversationId,
+                                                     @Query("userId") Integer userId,
+                                                     @Query("leaverId") Integer LeaverId);
 
     @GET("api/conversations/messages")
     Call<BaseAPIResponse<BasePagingResponse<MessageResponse>>> getMessagePaging(@Query("pageIndex") Integer index,
                                                                                 @Query("pageSize") Integer size,
                                                                                 @Query("conversationId") Integer conversationId,
                                                                                 @Query("userId") Integer userId);
-
-    @DELETE("api/conversations/participants")
-    Call<BaseAPIResponse<Boolean>> deleteParticipant(@Query("conversationId") Integer conversationId,
-                                                     @Query("userId") Integer userId,
-                                                     @Query("leaverId") Integer LeaverId);
 
     @POST("api/conversations/messages")
     Call<BaseAPIResponse<MessageResponse>> createMessage(@Body MessageCreateRequest request);

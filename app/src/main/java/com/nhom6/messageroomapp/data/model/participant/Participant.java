@@ -4,7 +4,9 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.nhom6.messageroomapp.data.model.common.AppUser;
 
-public class Participant {
+import java.io.Serializable;
+
+public class Participant implements Serializable {
     @SerializedName("conversationId")
     @Expose
     private Integer conversationId;

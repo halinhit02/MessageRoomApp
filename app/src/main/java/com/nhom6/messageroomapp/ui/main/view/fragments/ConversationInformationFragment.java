@@ -89,7 +89,7 @@ public class ConversationInformationFragment extends BaseFragment<FragmentConver
         if (btnId == R.id.btn_back) {
             navController.popBackStack();
         } else if (btnId == R.id.tv_participants) {
-            //
+            navController.navigate(R.id.action_conversationInformationFragment_to_participantFragment);
         } else if (btnId == R.id.btn_edit) {
             Bundle bundle = new Bundle();
             bundle.putParcelable(Constant.INTENT_EXTRA_CONVERSATION, conversation);

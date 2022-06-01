@@ -86,12 +86,32 @@
         <action
             android:id="@+id/action_conversationInformationFragment_to_navigation_conversation"
             app:destination="@id/navigation_conversation"/>
+        <action
+            android:id="@+id/action_conversationInformationFragment_to_participantFragment"
+            app:destination="@id/participantFragment" />
     </fragment>
     <fragment
         android:id="@+id/conversationEditFragment"
         android:name="com.nhom6.messageroomapp.ui.main.view.fragments.ConversationEditFragment"
         android:label="ConversationEditFragment"
         tools:layout="@layout/fragment_edit_conversation"/>
+    <fragment
+        android:id="@+id/participantFragment"
+        android:name="com.nhom6.messageroomapp.ui.main.view.fragments.ParticipantFragment"
+        android:label="ParticipantFragment"
+        tools:layout="@layout/fragment_participant">
+        <action
+            android:id="@+id/action_participantFragment_to_navigation_conversation2"
+            app:destination="@id/navigation_conversation" />
+        <action
+            android:id="@+id/action_participantFragment_to_participantAddFragment"
+            app:destination="@id/participantAddFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/participantAddFragment"
+        android:name="com.nhom6.messageroomapp.ui.main.view.fragments.ParticipantAddFragment"
+        android:label="ParticipantAddFragment"
+        tools:layout="@layout/fragment_add_participant"/>
     <fragment
         android:id="@+id/photoViewerFragment"
         android:name="com.nhom6.messageroomapp.ui.main.view.fragments.PhotoViewerFragment"

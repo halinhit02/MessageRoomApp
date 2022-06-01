@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.nhom6.messageroomapp.ui.main.viewmodel.MenuParticipantViewModel" />
+
+        <variable
+            name="participant"
+            type="com.nhom6.messageroomapp.data.model.participant.Participant" />
+
+        <variable
+            name="mParticipant"
+            type="com.nhom6.messageroomapp.data.model.participant.Participant" />
+
+        <variable
+            name="onClicked"
+            type="android.view.View.OnClickListener" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingVertical="10dp"
+                android:text="@{participant.nickName == null ? participant.user.name : participant.nickName}"
+                android:textAlignment="center"
+                android:textColor="@color/dark_grey"
+                android:textSize="@dimen/txt_size_subtitle"
+                android:textStyle="bold" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#D8D8D8" />
+
+            <TextView
+                android:id="@+id/tv_add_nickName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/view_clicked_background"
+                android:clickable="true"
+                android:focusable="true"
+                android:onClick="@{onClicked}"
+                android:paddingVertical="15dp"
+                android:text="Đặt biệt danh"
+                android:textAlignment="center"
+                android:textColor="@color/blue_light"
+                android:textSize="@dimen/txt_size_title"
+                android:visibility="@{mParticipant.isAdmin() ? View.VISIBLE : View.GONE}" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#D8D8D8" />
+
+            <TextView
+                android:id="@+id/tv_add_admin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/view_clicked_background"
+                android:clickable="true"
+                android:focusable="true"
+                android:onClick="@{onClicked}"
+                android:paddingVertical="15dp"
+                android:tag='@{participant.isAdmin() ? "0" : "1"}'
+                android:text='@{participant.isAdmin() ? "Xóa quản trị viên" : "Chỉ định làm quản trị viên"}'
+                android:textAlignment="center"
+                android:textColor="@color/blue_light"
+                android:textSize="@dimen/txt_size_title"
+                android:visibility="@{mParticipant.isAdmin() ? View.VISIBLE : View.GONE}" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#D8D8D8"
+                android:visibility="@{mParticipant.isAdmin() ? View.VISIBLE : View.GONE}" />
+
+            <TextView
+                android:id="@+id/tv_message"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/view_clicked_background"
+                android:clickable="true"
+                android:focusable="true"
+                android:onClick="@{onClicked}"
+                android:paddingVertical="15dp"
+                android:text="Nhắn tin"
+                android:textAlignment="center"
+                android:textColor="@color/blue_light"
+                android:textSize="@dimen/txt_size_title" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#D8D8D8" />
+
+            <TextView
+                android:id="@+id/tv_remove"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/view_clicked_background"
+                android:clickable="true"
+                android:focusable="true"
+                android:onClick="@{onClicked}"
+                android:paddingVertical="18dp"
+                android:text='@{participant.user.name != mParticipant.user.name ? "Xóa khỏi nhóm" : "Rời khỏi nhóm"}'
+                android:textAlignment="center"
+                android:textColor="@color/red"
+                android:textSize="@dimen/txt_size_title"
+                android:visibility="@{mParticipant.isAdmin() || participant.user.name == mParticipant.user.name ? View.VISIBLE : View.GONE}" />
+        </LinearLayout>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

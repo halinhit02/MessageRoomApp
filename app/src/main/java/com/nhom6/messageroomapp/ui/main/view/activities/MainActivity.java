@@ -52,7 +52,7 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> {
         super.onStart();
         appUser = AppUtils.getAppUser();
         if (appUser != null) {
-            /*mainViewModel.init(appUser.getId());
+            mainViewModel.init(appUser.getId());
             mainViewModel.appUserLiveData.observe(this, appUserResponse -> {
                if (appUserResponse.getCode() == 401) {
                     goToAuthenticateActivity();
@@ -61,7 +61,7 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> {
                    appViewModel.setAppUser(appUser);
                     AppUtils.saveAppUser(appUser);
                 }
-            });*/
+            });
         } else {
             goToAuthenticateActivity();
         }

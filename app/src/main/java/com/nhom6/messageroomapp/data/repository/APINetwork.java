@@ -30,8 +30,10 @@ import com.nhom6.messageroomapp.data.model.message.MessageGetRequest;
 import com.nhom6.messageroomapp.data.model.message.MessagePagingRequest;
 import com.nhom6.messageroomapp.data.model.message.MessageResponse;
 import com.nhom6.messageroomapp.data.model.participant.Participant;
+import com.nhom6.messageroomapp.data.model.participant.ParticipantAddRequest;
 import com.nhom6.messageroomapp.data.model.participant.ParticipantDeleteRequest;
 import com.nhom6.messageroomapp.data.model.participant.ParticipantPagingRequest;
+import com.nhom6.messageroomapp.data.model.participant.ParticipantUpdateRequest;
 import com.nhom6.messageroomapp.data.model.storage.FileUploadRequest;
 import com.nhom6.messageroomapp.data.model.storage.SignedUrl;
 import com.nhom6.messageroomapp.data.model.storage.SignedUrlGetRequest;
@@ -126,6 +128,14 @@ public class APINetwork {
     public static void GetAllParticipant(ParticipantPagingRequest request, ObjectCallback<BaseAPIResponse<BasePagingResponse<Participant>>> participantCallback) {
         getDataAPIService().getParticipantPaging(request.pageIndex, request.pageSize, request.conversationId, request.userId)
                 .enqueue(new ApiResponseCallback<>(participantCallback));
+    }
+
+    public static void AddParticipant(ParticipantAddRequest request, MutableLiveData<BaseAPIResponse<Participant>> updateParticipantCallback) {
+        getDataAPIService().addParticipant(request).enqueue(new LiveDataResponseCallback<>(updateParticipantCallback));
+    }
+
+    public static void UpdateParticipant(ParticipantUpdateRequest request, MutableLiveData<BaseAPIResponse<Boolean>> updateParticipantCallback) {
+        getDataAPIService().updateParticipant(request).enqueue(new LiveDataResponseCallback<>(updateParticipantCallback));
     }
 
     public static void DeleteParticipant(ParticipantDeleteRequest request, ObjectCallback<BaseAPIResponse<Boolean>> participantRemoveCallback) {
