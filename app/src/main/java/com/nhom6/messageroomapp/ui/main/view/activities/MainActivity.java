@@ -12,6 +12,7 @@ import com.nhom6.messageroomapp.R;
 import com.nhom6.messageroomapp.data.model.common.AppUser;
 import com.nhom6.messageroomapp.databinding.ActivityMainBinding;
 import com.nhom6.messageroomapp.ui.base.BaseActivity;
+import com.nhom6.messageroomapp.ui.main.view.fragments.MessageFragment;
 import com.nhom6.messageroomapp.ui.main.viewmodel.ApplicationViewModel;
 import com.nhom6.messageroomapp.ui.main.viewmodel.MainViewModel;
 import com.nhom6.messageroomapp.utils.AppUtils;
@@ -48,8 +49,8 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> {
     }
 
     @Override
-    protected void onStart() {
-        super.onStart();
+    protected void onResume() {
+        super.onResume();
         appUser = AppUtils.getAppUser();
         if (appUser != null) {
             mainViewModel.init(appUser.getId());
@@ -71,7 +72,10 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> {
     public void onBackPressed() {
         NavHostFragment navHostFragment = (NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.nav_host_fragment);
         Fragment currentFragment = navHostFragment.getChildFragmentManager().getFragments().get(0);
-
+        if (currentFragment instanceof MessageFragment) {
+            navHostFragment.getNavController().navigate(R.id.action_messageFragment_to_navigation_conversation);
+            return;
+        }
         super.onBackPressed();
     }
 

@@ -17,7 +17,7 @@
         <entry key="..\:/Users/HALINHIT/AndroidStudioProjects/MessageRoomApp/app/src/main/res/layout/fragment_create_conversation.xml" value="0.1" />
         <entry key="..\:/Users/HALINHIT/AndroidStudioProjects/MessageRoomApp/app/src/main/res/layout/fragment_dialog_input.xml" value="0.1" />
         <entry key="..\:/Users/HALINHIT/AndroidStudioProjects/MessageRoomApp/app/src/main/res/layout/fragment_edit_conversation.xml" value="0.1" />
-        <entry key="..\:/Users/HALINHIT/AndroidStudioProjects/MessageRoomApp/app/src/main/res/layout/fragment_home.xml" value="0.1" />
+        <entry key="..\:/Users/HALINHIT/AndroidStudioProjects/MessageRoomApp/app/src/main/res/layout/fragment_home.xml" value="0.176" />
         <entry key="..\:/Users/HALINHIT/AndroidStudioProjects/MessageRoomApp/app/src/main/res/layout/fragment_message.xml" value="0.1" />
         <entry key="..\:/Users/HALINHIT/AndroidStudioProjects/MessageRoomApp/app/src/main/res/layout/fragment_participant.xml" value="0.1" />
         <entry key="..\:/Users/HALINHIT/AndroidStudioProjects/MessageRoomApp/app/src/main/res/layout/fragment_photo.xml" value="0.1" />
@@ -35,6 +35,7 @@
         <entry key="..\:/Users/HALINHIT/AndroidStudioProjects/MessageRoomApp/app/src/main/res/layout/user_item_layout.xml" value="0.1" />
         <entry key="..\:/Users/HALINHIT/AndroidStudioProjects/MessageRoomApp/app/src/main/res/layout/user_search_item_layout.xml" value="0.1" />
         <entry key="..\:/Users/HALINHIT/AndroidStudioProjects/MessageRoomApp/app/src/main/res/menu/navigation.xml" value="0.21822916666666667" />
+        <entry key="..\:/Users/HALINHIT/AndroidStudioProjects/MessageRoomApp/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1" />
       </map>
     </option>
   </component>

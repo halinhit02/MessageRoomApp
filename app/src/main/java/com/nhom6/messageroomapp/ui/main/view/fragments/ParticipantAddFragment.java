@@ -105,7 +105,7 @@ public class ParticipantAddFragment extends BaseFragment<FragmentAddParticipantB
     private boolean checkParticipant(Participant participant) {
         if (participantList == null) return false;
         for (Participant par : participantList) {
-            if (par.getUser().getId().equals(par.getUser().getId())) {
+            if (par.getUser().getId().equals(participant.getUser().getId())) {
                 return true;
             }
         }

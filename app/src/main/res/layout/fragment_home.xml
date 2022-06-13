@@ -114,7 +114,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:text="Chat"
+                    android:text="Trò chuyện"
                     android:textColor="@color/black"
                     android:textSize="@dimen/txt_size_subtitle" />
             </LinearLayout>
@@ -148,7 +148,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:text="Voice Call"
+                    android:text="Gọi thoại"
                     android:textColor="@color/black"
                     android:textSize="@dimen/txt_size_subtitle" />
             </LinearLayout>
@@ -181,7 +181,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:text="Video Call"
+                    android:text="Gọi video"
                     android:textColor="@color/black"
                     android:textSize="@dimen/txt_size_subtitle" />
             </LinearLayout>

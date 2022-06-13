@@ -46,8 +46,6 @@
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
             android:visibility="@{main.visibleNavigation ? View.VISIBLE : View.GONE}"
-            android:paddingTop="5dp"
-            android:paddingBottom="10dp"
             app:itemBackground="@color/white"
             app:itemIconSize="20dp"
             app:itemRippleColor="@color/blue_light"
